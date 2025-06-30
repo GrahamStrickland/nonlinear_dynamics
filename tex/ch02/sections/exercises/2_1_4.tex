@@ -1,6 +1,42 @@
 % Exercise 2.1.4
 
 \begin{itemize}
-    \item[(a)] 
-    \item[(b)]
+    \item[(a)] We begin by evaluating 
+        \[
+            t = \ln{\biggl\lvert\frac{\csc{x_0} + \cot{x_0}}{\csc{x} + \cot{x}}\biggr\rvert}
+        \]
+        with $x_0 = \pi / 4$ to find
+        \begin{equation*}
+            \begin{split}
+                t &= \ln{\biggl\lvert\frac{\sqrt{2} + 1}{\csc{x} + \cot{x}}\biggr\rvert} \\
+                  &= \ln{\biggl(\frac{1 + \sqrt{2}}{\csc{x} + \cot{x}}\biggr)}.
+            \end{split}
+        \end{equation*}
+        Then we apply the function $e^z$ to both sides of to find
+        \begin{equation*}
+            \begin{split}
+                e^t &= \frac{1 + \sqrt{2}}{\csc{x} + \cot{x}} \\
+                    &= \frac{1 + \sqrt{2}}{\cot{(x/2)}} \\
+                \Leftrightarrow \cot{(x/2)} &= \frac{1 + \sqrt{2}}{e^t} \\
+                \Leftrightarrow \frac{1}{\tan{(x/2)}} &= \frac{1 + \sqrt{2}}{e^t} \\
+                \Leftrightarrow \tan{(x/2)} &= \frac{e^t}{1 + \sqrt{2}} \\
+                \Leftrightarrow \frac{x}{2} &= \tan^{-1}{\biggl(\frac{e^t}{1 + \sqrt{2}}\biggr)} \\
+                \Leftrightarrow x &= 2\tan^{-1}{\biggl(\frac{e^t}{1 + \sqrt{2}}\biggr)}.
+            \end{split}
+        \end{equation*}
+        Now, we have
+        \[
+            \lim_{t \rightarrow \infty} x(t) = \lim_{t \rightarrow \infty}
+            \biggl[2\tan^{-1}{\biggl(\frac{e^t}{1 + \sqrt{2}}\biggr)}\biggr] = \pi,
+        \]
+        since $\lim_{t \rightarrow \infty}e^t = \infty$ and 
+        $\lim_{t \rightarrow \infty}\tan^{-1}{t} = \pi$.
+    \item[(b)] An analytic solution is given by performing the steps in (a) without 
+        assuming $x_0 = \pi / 4$, so that we have
+        \begin{equation*}
+            \begin{split}
+                x(t) &= 2\tan^{-1}{\biggl(\frac{e^t}{\csc{x_0} + \cot{x_0}}\biggr)} \\
+                     &= 2\tan^{-1}{\biggl(\frac{e^t}{\cot{(x_0/2)}}\biggr)}.
+            \end{split}
+        \end{equation*}
 \end{itemize}
