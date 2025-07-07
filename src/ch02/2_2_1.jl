@@ -3,18 +3,18 @@ using LaTeXStrings
 
 fig = Figure()
 ax = Axis(fig[1, 1], xlabel=L"x", ylabel=L"\dot{x}")
-stable_points = [Point2f(-4,0)]
-unstable_points = [Point2f(4,0)]
+stable_points = [Point2f(-2,0)]
+unstable_points = [Point2f(2,0)]
 
-x = range(-5, 5, length=100)
-ẋ(x) = x^2 - 16
+x = range(-3, 3, length=100)
+ẋ(x) = 4*x^2 - 16
 
-arrow_xs = [-5, -3, 3.75, 4.125]
+arrow_xs = [-2.5, -1.5, 1.75, 2.25]
 arrow_dxs = ẋ.(arrow_xs)
-arrow_us = [x < -4|| x > 4 ? x + 0.5 : x - 0.5 for x in arrow_xs]
+arrow_us = [x < -2 || x > 2 ? x + 0.25 : x - 0.25 for x in arrow_xs]
 arrow_vs = ẋ.(arrow_us)
 
-lines!(ax, x, ẋ, label=L"\dot{x} = x^2 - 16", color="blue")
+lines!(ax, x, ẋ, label=L"\dot{x} = 4x^2 - 16", color="blue")
 scatter!(ax, stable_points, marker=:circle, markersize=10, color="blue")
 scatter!(ax, unstable_points, marker=:circle, markersize=10, color="blue")
 scatter!(ax, unstable_points, marker=:circle, markersize=5, color="white")
