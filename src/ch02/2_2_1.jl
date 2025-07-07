@@ -9,9 +9,9 @@ unstable_points = [Point2f(4,0)]
 x = range(-5, 5, length=100)
 ẋ(x) = x^2 - 16
 
-arrow_xs = [-5, -3, 3, 5]
+arrow_xs = [-5, -3, 3.75, 4.125]
 arrow_dxs = ẋ.(arrow_xs)
-arrow_us = [x < -4|| x > 0 && x < 4 ? x + 0.5 : x - 0.5 for x in arrow_xs]
+arrow_us = [x < -4|| x > 4 ? x + 0.5 : x - 0.5 for x in arrow_xs]
 arrow_vs = ẋ.(arrow_us)
 
 lines!(ax, x, ẋ, label=L"\dot{x} = x^2 - 16", color="blue")
