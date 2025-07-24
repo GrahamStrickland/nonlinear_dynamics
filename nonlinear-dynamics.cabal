@@ -1,0 +1,41 @@
+cabal-version:      3.0
+name:               nonlinear-dynamics
+version:            0.1.0.0
+synopsis:
+    Exercises and plots in Haskell from "Nonlinear Dynamics and Chaos" (2e) - Steven H. Strogatz
+
+-- description:
+homepage:           https://github.com/GrahamStrickland/nonlinear_dynamics.git
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Graham Strickland
+maintainer:         grahamhstrickland@gmail.com
+-- copyright:
+category:           Math
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  NonlinearDynamics, FlowsOnTheLine.Plots
+    -- other-modules:
+    -- other-extensions:
+    build-depends:    base ^>=4.17.2.1, gnuplot
+    hs-source-dirs:   lib
+    default-language: Haskell2010
+
+test-suite nonlinear-dynamics-test
+    import:           warnings
+    default-language: Haskell2010
+    -- other-modules:
+    -- other-extensions:
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.2.1,
+        nonlinear-dynamics

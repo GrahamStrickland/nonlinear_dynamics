@@ -8,3 +8,8 @@
 
 # macOS files
 .DS_Store
+
+# Cabal files
+dist-newstyle
+tags
+
