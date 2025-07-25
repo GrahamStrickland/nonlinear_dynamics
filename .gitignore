@@ -13,3 +13,5 @@
 dist-newstyle
 tags
 
+# Python files
+.venv
