@@ -19,12 +19,16 @@ plot2_2_1 =
     setTeX True
         % plot x y
         @@ [o1 "b", o2 "zorder" (0 :: Int)]
-        % scatter (map (\(x',_) -> x') stablePoints) (map (\(_,y') -> y') stablePoints)
+        % scatter (map (\(x', _) -> x') stablePoints) (map (\(_, y') -> y') stablePoints)
         @@ [o2 "color" "b", o2 "marker" "o", o2 "zorder" (1 :: Int)]
-        % scatter (map (\(x',_) -> x') stablePoints) (map (\(_,y') -> y') stablePoints)
+        % scatter (map (\(x', _) -> x') stablePoints) (map (\(_, y') -> y') stablePoints)
         @@ [o2 "color" "w", o2 "marker" ".", o2 "zorder" (1 :: Int)]
-        % scatter (map (\(x',_) -> x') unstablePoints) (map (\(_,y') -> y') unstablePoints)
+        % scatter (map (\(x', _) -> x') unstablePoints) (map (\(_, y') -> y') unstablePoints)
         @@ [o2 "color" "b", o2 "marker" "o", o2 "zorder" (1 :: Int)]
+        % scatter (map (\(x', _) -> x') leftArrows) (map (\(_, y') -> y') leftArrows)
+        @@ [o2 "color" "b", o2 "marker" "<"]
+        % scatter (map (\(x', _) -> x') rightArrows) (map (\(_, y') -> y') rightArrows)
+        @@ [o2 "color" "b", o2 "marker" ">"]
         % spine "bottom"
         % spineSetPosition "'data'" (0 :: R)
         % spine "left"
@@ -42,8 +46,10 @@ plot2_2_1 =
   where
     x = xRange
     y = map xDotPos x
-    stablePoints = [((-2, 0) :: (R,R))]
-    unstablePoints = [((2, 0) :: (R,R))]
+    stablePoints = [((2, 0) :: (R, R))]
+    unstablePoints = [((-2, 0) :: (R, R))]
+    leftArrows = [(x', xDotPos x') | x' <- [-2.3825, 2.3825]]
+    rightArrows = [(x', xDotPos x') | x' <- [-1.5, 1.5]]
 
 output2_2_1 :: IO (Either String String)
 output2_2_1 = (file "plots/ch02/ex2_2_1.pdf") $ plot2_2_1
