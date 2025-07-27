@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -Wall #-}
+{-# OPTIONS -Wall #-}
 
 module FlowsOnTheLine.Plots where
 
@@ -18,7 +18,13 @@ plot2_2_1 :: Matplotlib
 plot2_2_1 =
     setTeX True
         % plot x y
-        @@ [o1 "b"]
+        @@ [o1 "b", o2 "zorder" (0 :: Int)]
+        % scatter (map (\(x',_) -> x') stablePoints) (map (\(_,y') -> y') stablePoints)
+        @@ [o2 "color" "b", o2 "marker" "o", o2 "zorder" (1 :: Int)]
+        % scatter (map (\(x',_) -> x') stablePoints) (map (\(_,y') -> y') stablePoints)
+        @@ [o2 "color" "w", o2 "marker" ".", o2 "zorder" (1 :: Int)]
+        % scatter (map (\(x',_) -> x') unstablePoints) (map (\(_,y') -> y') unstablePoints)
+        @@ [o2 "color" "b", o2 "marker" "o", o2 "zorder" (1 :: Int)]
         % spine "bottom"
         % spineSetPosition "'data'" (0 :: R)
         % spine "left"
@@ -27,12 +33,17 @@ plot2_2_1 =
         % spineSetVisible False
         % spine "top"
         % spineSetVisible False
+        % xticks [(-2 :: R), (2 :: R)]
         % xlabel "$x$"
+        @@ [o2 "rotation" "horizontal", o2 "loc" "right"]
+        % yticks [(-16 :: R)]
         % ylabel "$\\dot{x}$"
-        % title "Ex. 2.2.1"
+        @@ [o2 "rotation" "horizontal", o2 "loc" "top"]
   where
     x = xRange
     y = map xDotPos x
+    stablePoints = [((-2, 0) :: (R,R))]
+    unstablePoints = [((2, 0) :: (R,R))]
 
 output2_2_1 :: IO (Either String String)
 output2_2_1 = (file "plots/ch02/ex2_2_1.pdf") $ plot2_2_1
