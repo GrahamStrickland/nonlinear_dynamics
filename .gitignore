@@ -12,3 +12,6 @@
 # VSCode file
 .vscode/
 *.code-workspace
+
+# Plots
+plots/
