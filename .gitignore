@@ -9,9 +9,6 @@
 # macOS files
 .DS_Store
 
-# Cabal files
-dist-newstyle
-tags
-
-# Python files
-.venv
+# VSCode file
+.vscode/
+*.code-workspace
