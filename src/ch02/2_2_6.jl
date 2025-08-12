@@ -1,12 +1,12 @@
 using CairoMakie
 using LaTeXStrings
 
-xs = [0.5pi * x for x = -4:4]
+xs = [0.5π * x for x = -4:4]
 
 fig = Figure()
 ax = Axis(
     fig[1, 1],
-    limits=((-2.5pi, 2.5pi), nothing),
+    limits=((-2.5π, 2.5π), nothing),
     xticks=(
         xs,
         [L"-2\pi", L"-\frac{3}{2}\pi", L"-\pi", L"-\frac{1}{2}\pi", L"0", L"\frac{1}{2}\pi", L"\pi", L"\frac{3}{2}\pi", L"2\pi"]
@@ -14,10 +14,10 @@ ax = Axis(
     xlabel=L"x",
     ylabel=L"\dot{x}"
 )
-stable_points = [Point2f(-7pi / 3, 0), Point2f(-pi / 3, 0), Point2f(5pi / 3, 0)]
-unstable_points = [Point2f(-5pi / 3, 0), Point2f(pi / 3, 0), Point2f(7pi / 3, 0)]
+stable_points = [Point2f(-7π / 3, 0), Point2f(-π / 3, 0), Point2f(5π / 3, 0)]
+unstable_points = [Point2f(-5π / 3, 0), Point2f(π / 3, 0), Point2f(7π / 3, 0)]
 
-x = range(-2.5pi, 2.5pi, length=100)
+x = range(-2.5π, 2.5π, length=100)
 ẋ(x) = 1 - 2cos(x)
 
 arrow_xs = vcat(

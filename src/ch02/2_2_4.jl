@@ -6,7 +6,7 @@ xs = [0.5pi * x for x = -4:4]
 fig = Figure()
 ax = Axis(
     fig[1, 1],
-    limits=((-2.5pi, 2.5pi), (-10, 10)),
+    limits=((-2.5π, 2.5π), (-10, 10)),
     xticks=(
         xs,
         [L"-2\pi", L"-\frac{3}{2}\pi", L"-\pi", L"-\frac{1}{2}\pi", L"0", L"\frac{1}{2}\pi", L"\pi", L"\frac{3}{2}\pi", L"2\pi"]
@@ -14,10 +14,10 @@ ax = Axis(
     xlabel=L"x",
     ylabel=L"\dot{x}"
 )
-stable_points = [Point2f(-pi, 0), Point2f(pi, 0)]
-unstable_points = [Point2f(-2pi, 0), Point2f(0, 0), Point2f(2pi, 0)]
+stable_points = [Point2f(-π, 0), Point2f(π, 0)]
+unstable_points = [Point2f(-2π, 0), Point2f(0, 0), Point2f(2π, 0)]
 
-x = range(-2.5pi, 2.5pi, length=100)
+x = range(-2.5π, 2.5π, length=100)
 ẋ(x) = exp(-x) * sin(x)
 
 arrow_xs = vcat(
