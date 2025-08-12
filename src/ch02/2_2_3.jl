@@ -2,7 +2,7 @@ using CairoMakie
 using LaTeXStrings
 
 fig = Figure()
-ax = Axis(fig[1, 1], xlabel=L"x", ylabel=L"\dot{x}")
+ax = Axis(fig[1, 1], limits=((-1.5, 1.5), nothing), xlabel=L"x", ylabel=L"\dot{x}")
 stable_points = [Point2f(0, 0)]
 unstable_points = [Point2f(-1, 0), Point2f(1, 0)]
 

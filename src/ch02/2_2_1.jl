@@ -2,14 +2,14 @@ using CairoMakie
 using LaTeXStrings
 
 fig = Figure()
-ax = Axis(fig[1, 1], xlabel=L"x", ylabel=L"\dot{x}")
+ax = Axis(fig[1, 1], limits=((-3, 3), nothing), xlabel=L"x", ylabel=L"\dot{x}")
 stable_points = [Point2f(-2, 0)]
 unstable_points = [Point2f(2, 0)]
 
 x = range(-3, 3, length=100)
 ẋ(x) = 4 * x^2 - 16
 
-arrow_xs = [-2.5, -1.5, 1.75, 2.25]
+arrow_xs = [-2.75, -1.25, 1.75, 2.25]
 arrow_dxs = ẋ.(arrow_xs)
 arrow_us = [ẋ(x) > 0 ? x + 0.25 : x - 0.25 for x in arrow_xs]
 arrow_vs = ẋ.(arrow_us)
