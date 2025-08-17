@@ -22,4 +22,4 @@ lines!(ax, x, ẋ, label=L"1 + \frac{1}{2}\cos{x}", color="blue")
 
 axislegend(position=:rb)
 
-save("plots/ch02/ex2_2_5.pdf", fig)
+save("plots/ch02/fig2_2_5vecfield.pdf", fig)

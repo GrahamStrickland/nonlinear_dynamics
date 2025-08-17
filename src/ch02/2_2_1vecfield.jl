@@ -3,11 +3,12 @@ using LaTeXStrings
 
 fig = Figure()
 ax = Axis(fig[1, 1], limits=((-3, 3), nothing), xlabel=L"x", ylabel=L"\dot{x}")
-stable_points = [Point2f(-2, 0)]
-unstable_points = [Point2f(2, 0)]
 
 x = range(-3, 3, length=100)
 ẋ(x) = 4 * x^2 - 16
+
+stable_points = [Point2f(-2, 0)]
+unstable_points = [Point2f(2, 0)]
 
 arrow_xs = [-2.75, -1.25, 1.75, 2.25]
 arrow_dxs = ẋ.(arrow_xs)
@@ -22,4 +23,4 @@ arrows2d!(ax, arrow_xs, arrow_dxs, arrow_us, arrow_vs, shaftwidth=1, tipwidth=10
 
 axislegend(position=:rt)
 
-save("plots/ch02/ex2_2_1.pdf", fig)
+save("plots/ch02/fig2_2_1vecfield.pdf", fig)

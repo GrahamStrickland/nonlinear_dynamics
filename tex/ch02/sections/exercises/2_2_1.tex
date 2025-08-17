@@ -6,6 +6,88 @@ and various graphs with different initial conditions for the equation
     \dot{x} = 4x^2 - 16
 \]
 \begin{figure}[!ht]
-    \includegraphics[scale=0.6, center]{../plots/ch02/ex2_2_1.pdf}
+    \includegraphics[scale=0.6, center]{../plots/ch02/fig2_2_1vecfield.pdf}
     \caption{Vector field and fixed points for $\dot{x} = 4x^2 - 16$\label{fig2_2_1vecfield}}
+\end{figure}
+
+An explicit solution for $\dot{x} = 4x^2 - 16$ can be found by re-writing the equation as
+\[
+    \frac{dx}{dt} = 4x^2 - 16,
+\]
+so that we have separable equations. Then, we may write
+\[
+    \frac{dx}{4x^2 - 16} = dt,
+\]
+so that by using partial fraction decomposition, we have
+\[
+    \biggl[\frac{\frac{1}{16}}{x - 2} - \frac{\frac{1}{16}}{x + 2}\biggr]dx = dt,
+\]
+and integrate either sides with respect to the $x$ and $t$, respectively, so that we 
+have
+\begin{equation*}
+    \begin{split}
+        \int \biggl[\frac{\frac{1}{16}}{x - 2} - \frac{\frac{1}{16}}{x + 2}\biggr]dx
+        &= \int dt \\
+        \Rightarrow \frac{1}{16}\ln{\lvert x - 2 \rvert} 
+        - \frac{1}{16}\ln{\lvert x + 2 \rvert}
+        &= t + c_1 \\
+        \Rightarrow \ln{\biggl \lvert \frac{x - 2}{x + 2}\biggr \rvert}
+        &= 16t + c_2 \\
+        \Rightarrow \frac{x - 2}{x + 2} &= \pm e^{16t + c_2}.
+    \end{split}
+\end{equation*}
+
+After replacing $\pm e^{c_2}$ by $c$ and solving the last equation for $x$, we have
+the one-parameter family of solutions
+\[
+    x = 2\frac{1 + ce^{16t}}{1 - ce^{16t}}.
+\]
+
+If we let $x(0) = 0$, we have
+\begin{equation*}
+    \begin{split}
+        2\frac{1 + c}{1 - c} &= 0 \\
+        \Rightarrow 1 + c &= 0 \\
+        \Rightarrow c &= -1,
+    \end{split}
+\end{equation*}
+so that 
+\[
+    x_1(t) = 2\frac{1 - e^{16t}}{1 + e^{16t}}
+\]
+is a solution corresponding to the initial condition $x(0) = 0$.
+
+Likewise, if we let $x(0) = 4$, we have
+\begin{equation*}
+    \begin{split}
+        2\frac{1 + c}{1 - c} &= 4 \\
+        \Rightarrow 1 + c &= 2(1 - c) \\
+        \Rightarrow c &= \frac{1}{3},
+    \end{split}
+\end{equation*}
+so that 
+\[
+    x_2(t) = 2\frac{1 + \frac{1}{3}e^{16t}}{1 - \frac{1}{3}e^{16t}}
+\]
+is a solution corresponding to the initial condition $x(0) = 4$.
+
+Finally, if we let $x(0) = -4$, we have
+\begin{equation*}
+    \begin{split}
+        2\frac{1 + c}{1 - c} &= -4 \\
+        \Rightarrow 1 + c &= -2(1 - c) \\
+        \Rightarrow c &= 3,
+    \end{split}
+\end{equation*}
+so that 
+\[
+    x_3(t) = 2\frac{1 + 3e^{16t}}{1 - 3e^{16t}}
+\]
+is a solution corresponding to the initial condition $x(0) = 4$.
+
+In Figure~\ref{fig2_2_1graph}, we have a plot of these solutions for the given 
+initial conditions.
+\begin{figure}[!ht]
+    \includegraphics[scale=0.6, center]{../plots/ch02/fig2_2_1graph.pdf}
+    \caption{Graph of solutions of $\dot{x} = 4x^2 - 16$\label{fig2_2_1graph}}
 \end{figure}

@@ -6,6 +6,23 @@ and various graphs with different initial conditions for the equation
     \dot{x} = 1 - x^{14}
 \]
 \begin{figure}[!ht]
-    \includegraphics[scale=0.6, center]{../plots/ch02/ex2_2_2.pdf}
+    \includegraphics[scale=0.6, center]{../plots/ch02/fig2_2_2vecfield.pdf}
     \caption{Vector field and fixed points for $\dot{x} = 1 - x^{14}$\label{fig2_2_2vecfield}}
 \end{figure}
+
+Again, we separate the equation to find
+\[
+    \frac{dx}{1 - x^{14}} = dt.
+\]
+Integrating either side with respect to $x$ and $t$, respectively, we have
+\begin{equation*}
+    \begin{split}
+        \int \frac{dx}{1 - x^{14}} &= \int dt \\
+        \Rightarrow \ln{\lvert 1 - x^{14} \rvert} &= t + c_1 \\
+        \Rightarrow 1 - x^{14} &= \pm e^{t + c_1} \\
+        \Rightarrow x^{14} &= \pm e^{t + c_1} + 1 \\
+        \Rightarrow x^{14} &= ce^t + 1 \\
+        \Rightarrow x &= \pm \sqrt[14]{ce^t + 1},
+    \end{split}
+\end{equation*}
+for $ce^t + 1 >= 0$.
