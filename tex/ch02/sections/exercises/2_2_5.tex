@@ -13,3 +13,73 @@ are not included in Figure~\ref{fig2_2_5vecfield}.
     \caption{Vector field for $\dot{x} = 1 + \frac{1}{2}\cos{x}$
         \label{fig2_2_5vecfield}}
 \end{figure}
+
+We separate equations to find
+\begin{equation*}
+    \begin{split}
+        \frac{dx}{dt} &= 1 + \frac{1}{2}\cos{x} \\
+        \Leftrightarrow \int \frac{dx}{1 + \frac{1}{2}\cos{x}} &= \int dt.
+    \end{split}
+\end{equation*}
+
+We introduce a new variable, $u = \tan{\frac{x}{2}}$, so that we have
+\[
+    \cos{x} = \frac{1 - u^2}{1 + u^2},
+\]
+and
+\[
+    dx = \frac{2}{1 + u^2}dt.
+\]
+
+Then we have
+\begin{equation*}
+    \begin{split}
+        \int \frac{dx}{1 + \frac{1}{2}\cos{x}} &= 4\int \frac{du}{3 + u^2} \\
+                                               &= \frac{4}{\sqrt{3}}\tan^{-1}
+                                               {\biggl(\frac{u}{\sqrt{3}}\biggr)} + c_1 \\
+                                               &= \frac{4}{\sqrt{3}}\tan^{-1}
+                                               {\biggl(\frac{\tan{\frac{x}{2}}}{\sqrt{3}}\biggr)}
+                                               + c_1.
+    \end{split}
+\end{equation*}
+
+Thus our ordinary differential equation becomes
+\[
+    \frac{4}{\sqrt{3}}\tan^{-1}{\biggl(\frac{\tan{\frac{x}{2}}}{\sqrt{3}}\biggr)}
+    = t + c_2, 
+\]
+so that we have
+\begin{equation*}
+    \begin{split}
+        \tan^{-1}{\biggl(\frac{\tan{\frac{x}{2}}}{\sqrt{3}}\biggr)}
+        &= \frac{\sqrt{3}}{4}(t + c_2) \\
+        \Leftrightarrow \frac{\tan{\frac{x}{2}}}{\sqrt{3}}
+        &= \tan{\biggl(\frac{\sqrt{3}}{4}t + c_3\biggr)} \\
+        \Leftrightarrow \tan{\frac{x}{2}}
+        &= \sqrt{3}\tan{\biggl(\frac{\sqrt{3}}{4}t + c_3\biggr)} \\
+        \Leftrightarrow x
+        &= 2\tan^{-1}\biggl[\sqrt{3}\tan{\biggl(\frac{\sqrt{3}}{4}t + c_3\biggr)} \biggr],
+    \end{split}
+\end{equation*}
+where $c_3 = \frac{\sqrt{3}}{4}c_2$.
+
+Substituting the initial condition $x(0) = 0$ yields
+\begin{equation*}
+    \begin{split}
+        \frac{4}{\sqrt{3}}\tan^{-1}{\biggl(\frac{\tan{0}}{\sqrt{3}}\biggr)}
+        &= c_2 \\ 
+        \Leftrightarrow \frac{4}{\sqrt{3}}\tan^{-1}{0} &= c_2 \\
+        \Leftrightarrow 0 &= c_2,
+    \end{split}
+\end{equation*}
+so that $c_3 = 0$, and we have a solution corresponding to the initial condition $x(0) = 0$
+given by
+\[
+    x(t) = 2\tan^{-1}\biggl[\sqrt{3}\tan{\biggl(\frac{\sqrt{3}}{4}t\biggr)} \biggr].
+\]
+
+In Figure~\ref{fig2_2_5graph}, we have a plot of this solution.
+\begin{figure}[!ht]
+    \includegraphics[scale=0.6, center]{../plots/ch02/fig2_2_5graph.pdf}
+    \caption{Graph of a solution of $\dot{x} = 1 + \frac{1}{2}\cos{x}$\label{fig2_2_5graph}}
+\end{figure}
