@@ -30,6 +30,7 @@ def x3(t):
 
 def ex2_2_1_vecfield(plotsdir):
     step = 0.01
+    arrow_delta = 0.01
     xlims = [-3, 3]
 
     x = np.arange(xlims[0], xlims[1] + step, step)
@@ -37,10 +38,7 @@ def ex2_2_1_vecfield(plotsdir):
     stable_points = [(-2.0, 0.0)]
     unstable_points = [(2.0, 0.0)]
 
-    arrow_xs = [-2.75, -1.25, 1.75, 2.25]
-    arrow_dxs = [xdot(x) for x in arrow_xs]
-    arrow_us = [x + 0.25 if xdot(x) > 0.0 else x - 0.25 for x in arrow_xs]
-    arrow_vs = [xdot(x) for x in arrow_us]
+    arrow_xs = [-2.5, -1.25, 1.5, 2.5]
 
     fig, ax = plt.subplots()
 
@@ -71,6 +69,30 @@ def ex2_2_1_vecfield(plotsdir):
         color="w",
         zorder=2,
     )
+
+    for i in range(len(arrow_xs)):
+        x = arrow_xs[i]
+        y = xdot(x)
+
+        slope = (xdot(x + arrow_delta) - xdot(x - arrow_delta)) / (2 * arrow_delta)
+        length = np.sqrt(1 + slope**2)
+        dx = (1.0 / length) * (-1 if y < 0.0 else 1)
+        dy = (slope / length) * (-1 if y < 0.0 else 1)
+
+        ax.quiver(
+            x,
+            y,
+            dx,
+            dy,
+            angles="xy",
+            scale_units="xy",
+            scale=1,
+            color="b",
+            width=0.01,
+            headwidth=4,
+            headlength=4,
+            headaxislength=3,
+        )
 
     ax.set_xlabel(r"$x$")
     ax.set_ylabel(r"$\dot{x}$")
