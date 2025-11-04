@@ -15,3 +15,6 @@
 
 # Plots
 plots/
+
+# Python files
+__pycache__/

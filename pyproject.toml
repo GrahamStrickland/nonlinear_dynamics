@@ -1,0 +1,17 @@
+[project]
+name = "nonlinear-dynamics"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "matplotlib>=3.10.7",
+]
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.32.1",
+    "isort>=7.0.0",
+    "pytest>=8.4.2",
+    "ruff>=0.14.3",
+]
