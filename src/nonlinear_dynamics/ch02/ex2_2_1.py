@@ -4,6 +4,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
+from nonlinear_dynamics.plotting_utils import get_vector_field_plot
+
 
 matplotlib.rcParams["text.usetex"] = True
 
@@ -30,7 +32,6 @@ def x3(t):
 
 def ex2_2_1_vecfield(plotsdir):
     step = 0.01
-    arrow_delta = 0.01
     xlims = [-3, 3]
 
     x = np.arange(xlims[0], xlims[1] + step, step)
@@ -40,62 +41,18 @@ def ex2_2_1_vecfield(plotsdir):
 
     arrow_xs = [-2.5, -1.25, 1.5, 2.5]
 
-    fig, ax = plt.subplots()
-
-    ax.set_xlim(xlims[0], xlims[1])
-
-    ax.plot(x, xdot(x), color="b", zorder=0)
-    ax.scatter(
-        [x for (x, _) in stable_points],
-        [y for (_, y) in stable_points],
-        s=20,
-        marker="o",
-        color="b",
-        zorder=1,
+    ax, fig = get_vector_field_plot(
+        x,
+        xdot,
+        xlims,
+        None,
+        stable_points,
+        unstable_points,
+        arrow_xs,
+        arrow_delta=0.01,
+        width=0.01,
+        scale=1,
     )
-    ax.scatter(
-        [x for (x, _) in unstable_points],
-        [y for (_, y) in stable_points],
-        s=20,
-        marker="o",
-        color="b",
-        zorder=1,
-    )
-    ax.scatter(
-        [x for (x, _) in unstable_points],
-        [y for (_, y) in stable_points],
-        s=5,
-        marker="o",
-        color="w",
-        zorder=2,
-    )
-
-    for i in range(len(arrow_xs)):
-        x = arrow_xs[i]
-        y = xdot(x)
-
-        slope = (xdot(x + arrow_delta) - xdot(x - arrow_delta)) / (2 * arrow_delta)
-        length = np.sqrt(1 + slope**2)
-        dx = (1.0 / length) * (-1 if y < 0.0 else 1)
-        dy = (slope / length) * (-1 if y < 0.0 else 1)
-
-        ax.quiver(
-            x,
-            y,
-            dx,
-            dy,
-            angles="xy",
-            scale_units="xy",
-            scale=1,
-            color="b",
-            width=0.01,
-            headwidth=4,
-            headlength=4,
-            headaxislength=3,
-        )
-
-    ax.set_xlabel(r"$x$")
-    ax.set_ylabel(r"$\dot{x}$")
     ax.legend([r"$\dot{x} = 4x^2 - 16$"], loc="upper center")
 
     fig.savefig(

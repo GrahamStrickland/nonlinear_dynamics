@@ -1,7 +1,14 @@
 import os
 from pathlib import Path
 
-from nonlinear_dynamics.ch02 import plot_ex2_2_1
+from nonlinear_dynamics.ch02 import (
+    plot_ex2_2_1,
+    plot_ex2_2_2,
+    plot_ex2_2_3,
+    plot_ex2_2_4,
+    plot_ex2_2_5,
+    plot_ex2_2_6,
+)
 
 
 def main():
@@ -11,6 +18,11 @@ def main():
         os.mkdir(plotsdir)
 
     plot_ex2_2_1(plotsdir)
+    plot_ex2_2_2(plotsdir)
+    plot_ex2_2_3(plotsdir)
+    plot_ex2_2_4(plotsdir)
+    plot_ex2_2_5(plotsdir)
+    plot_ex2_2_6(plotsdir)
 
 
 if __name__ == "__main__":
