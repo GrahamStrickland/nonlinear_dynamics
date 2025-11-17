@@ -4,6 +4,7 @@ from .ex2_2_3 import plot_ex2_2_3
 from .ex2_2_4 import plot_ex2_2_4
 from .ex2_2_5 import plot_ex2_2_5
 from .ex2_2_6 import plot_ex2_2_6
+from .ex2_2_7 import plot_ex2_2_7
 
 
 __all__ = [
@@ -13,4 +14,5 @@ __all__ = [
     "plot_ex2_2_4",
     "plot_ex2_2_5",
     "plot_ex2_2_6",
+    "plot_ex2_2_7",
 ]

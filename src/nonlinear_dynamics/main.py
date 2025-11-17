@@ -8,6 +8,7 @@ from nonlinear_dynamics.ch02 import (
     plot_ex2_2_4,
     plot_ex2_2_5,
     plot_ex2_2_6,
+    plot_ex2_2_7,
 )
 
 
@@ -23,6 +24,7 @@ def main():
     plot_ex2_2_4(plotsdir)
     plot_ex2_2_5(plotsdir)
     plot_ex2_2_6(plotsdir)
+    plot_ex2_2_7(plotsdir)
 
 
 if __name__ == "__main__":
