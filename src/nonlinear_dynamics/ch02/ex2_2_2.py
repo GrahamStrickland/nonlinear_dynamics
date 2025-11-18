@@ -5,14 +5,14 @@ import numpy as np
 from nonlinear_dynamics.plotting_utils import get_vector_field_plot
 
 
-def xdot(x):
+def xdot(x: np.ndarray) -> np.ndarray:
     return 1.0 - x**14
 
 
-def ex2_2_2_vecfield(plotsdir):
+def ex2_2_2_vecfield(plotsdir: Path):
     step = 0.01
-    xlims = [-1.1, 1.1]
-    ylims = [-2.0, 1.5]
+    xlims = (-1.1, 1.1)
+    ylims = (-2.0, 1.5)
 
     x = np.arange(xlims[0], xlims[1] + step, step)
 
@@ -22,13 +22,13 @@ def ex2_2_2_vecfield(plotsdir):
     arrow_xs = [-1.035, -0.95, 0.95, 1.035]
 
     ax, fig = get_vector_field_plot(
-        x,
-        xdot,
-        xlims,
-        ylims,
-        stable_points,
-        unstable_points,
-        arrow_xs,
+        x=x,
+        xdot=xdot,
+        xlims=xlims,
+        ylims=ylims,
+        stable_points=stable_points,
+        unstable_points=unstable_points,
+        arrow_xs=arrow_xs,
         arrow_delta=0.0005,
         width=0.004,
         scale=10,

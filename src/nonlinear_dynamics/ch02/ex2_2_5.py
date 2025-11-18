@@ -9,17 +9,17 @@ from nonlinear_dynamics.plotting_utils import get_vector_field_plot
 matplotlib.rcParams["text.usetex"] = True
 
 
-def xdot(x):
+def xdot(x: np.ndarray) -> np.ndarray:
     return 1.0 + 0.5 * np.cos(x)
 
 
-def x1(t):
+def x1(t: np.ndarray) -> np.ndarray:
     return 2.0 * np.atan(np.sqrt(3.0) * np.tan(t * (np.sqrt(3.0) / 4.0)))
 
 
-def ex2_2_5_vecfield(plotsdir):
+def ex2_2_5_vecfield(plotsdir: Path):
     step = 0.01
-    xlims = [-2.5 * np.pi, 2.5 * np.pi]
+    xlims = (-2.5 * np.pi, 2.5 * np.pi)
 
     x = np.arange(xlims[0], xlims[1] + step, step)
 
@@ -29,13 +29,12 @@ def ex2_2_5_vecfield(plotsdir):
     arrow_xs = []
 
     ax, fig = get_vector_field_plot(
-        x,
-        xdot,
-        xlims,
-        None,
-        stable_points,
-        unstable_points,
-        arrow_xs,
+        x=x,
+        xdot=xdot,
+        xlims=xlims,
+        stable_points=stable_points,
+        unstable_points=unstable_points,
+        arrow_xs=arrow_xs,
         arrow_delta=0.001,
         width=0.004,
         scale=1,
@@ -66,10 +65,10 @@ def ex2_2_5_vecfield(plotsdir):
     )
 
 
-def ex2_2_5_graph(plotsdir):
+def ex2_2_5_graph(plotsdir: Path):
     step = 0.01
-    xlims = [0.0, 8.0 * np.pi]
-    ylims = [-3.0, 3.0]
+    xlims = (0.0, 8.0 * np.pi)
+    ylims = (-3.0, 3.0)
 
     ts = np.arange(xlims[0], xlims[1] + step, step)
 
@@ -116,6 +115,6 @@ def ex2_2_5_graph(plotsdir):
     )
 
 
-def plot_ex2_2_5(plotsdir):
+def plot_ex2_2_5(plotsdir: Path):
     ex2_2_5_vecfield(plotsdir)
     ex2_2_5_graph(plotsdir)

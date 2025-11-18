@@ -7,9 +7,9 @@ import numpy as np
 matplotlib.rcParams["text.usetex"] = True
 
 
-def ex2_2_7_graph(plotsdir):
+def ex2_2_7_graph(plotsdir: Path):
     step = 0.01
-    xlims = [-np.pi / 2.0, np.pi / 2.0]
+    xlims = (-np.pi / 2.0, np.pi / 2.0)
 
     x = np.arange(xlims[0], xlims[1] + step, step)
 
@@ -43,5 +43,5 @@ def ex2_2_7_graph(plotsdir):
     )
 
 
-def plot_ex2_2_7(plotsdir):
+def plot_ex2_2_7(plotsdir: Path):
     ex2_2_7_graph(plotsdir)

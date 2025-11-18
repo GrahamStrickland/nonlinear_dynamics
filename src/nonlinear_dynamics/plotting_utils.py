@@ -1,3 +1,5 @@
+from typing import Callable
+
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -6,17 +8,17 @@ matplotlib.rcParams["text.usetex"] = True
 
 
 def get_vector_field_plot(
-    x,
-    xdot,
-    xlims,
-    ylims,
-    stable_points,
-    unstable_points,
-    arrow_xs,
-    arrow_delta,
-    width,
-    scale,
-):
+    x: np.ndarray,
+    xdot: Callable,
+    xlims: tuple[float, float],
+    stable_points: list[tuple[float, float]],
+    unstable_points: list[tuple[float, float]],
+    arrow_xs: list[float],
+    arrow_delta: float,
+    width: float,
+    scale: float,
+    ylims: tuple[float, float] | None = None,
+) -> tuple:
     fig, ax = plt.subplots()
 
     ax.set_xlim(*xlims)
@@ -53,17 +55,19 @@ def get_vector_field_plot(
     ax.axvline(0.0, color="k", linewidth=0.75, zorder=0)
 
     for i in range(len(arrow_xs)):
-        x = arrow_xs[i]
-        y = xdot(x)
+        arrow_x = arrow_xs[i]
+        arrow_y = xdot(arrow_x)
 
-        slope = (xdot(x + arrow_delta) - xdot(x - arrow_delta)) / (2 * arrow_delta)
+        slope = (xdot(arrow_x + arrow_delta) - xdot(arrow_x - arrow_delta)) / (
+            2 * arrow_delta
+        )
         length = np.sqrt(1 + slope**2)
-        dx = (1.0 / length) * (-1 if y < 0.0 else 1)
-        dy = (slope / length) * (-1 if y < 0.0 else 1)
+        dx = (1.0 / length) * (-1 if arrow_y < 0.0 else 1)
+        dy = (slope / length) * (-1 if arrow_y < 0.0 else 1)
 
         ax.quiver(
-            x,
-            y,
+            arrow_x,
+            arrow_y,
             dx,
             dy,
             angles="xy",
