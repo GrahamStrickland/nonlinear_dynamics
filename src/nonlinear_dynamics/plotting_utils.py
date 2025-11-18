@@ -2,7 +2,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 matplotlib.rcParams["text.usetex"] = True
 
 
@@ -20,18 +19,18 @@ def get_vector_field_plot(
 ):
     fig, ax = plt.subplots()
 
-    ax.set_xlim(xlims[0], xlims[1])
+    ax.set_xlim(*xlims)
     if ylims is not None:
-        ax.set_ylim(ylims[0], ylims[1])
+        ax.set_ylim(*ylims)
 
-    ax.plot(x, xdot(x), color="C0", zorder=0)
+    ax.plot(x, xdot(x), color="C0", zorder=1)
     ax.scatter(
         [x for (x, _) in stable_points],
         [y for (_, y) in stable_points],
         s=20,
         marker="o",
         color="C0",
-        zorder=1,
+        zorder=2,
     )
     ax.scatter(
         [x for (x, _) in unstable_points],
@@ -39,7 +38,7 @@ def get_vector_field_plot(
         s=20,
         marker="o",
         color="C0",
-        zorder=1,
+        zorder=2,
     )
     ax.scatter(
         [x for (x, _) in unstable_points],
@@ -47,8 +46,11 @@ def get_vector_field_plot(
         s=5,
         marker="o",
         color="w",
-        zorder=2,
+        zorder=3,
     )
+
+    ax.axhline(0.0, xlims[0], xlims[1], color="k", linewidth=0.75, zorder=0)
+    ax.axvline(0.0, color="k", linewidth=0.75, zorder=0)
 
     for i in range(len(arrow_xs)):
         x = arrow_xs[i]

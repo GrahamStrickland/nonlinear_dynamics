@@ -6,7 +6,6 @@ import numpy as np
 
 from nonlinear_dynamics.plotting_utils import get_vector_field_plot
 
-
 matplotlib.rcParams["text.usetex"] = True
 
 
@@ -91,6 +90,8 @@ def ex2_2_1_graph(plotsdir):
             r"$x_3(t) = 2\frac{1 + 3e^{16t}}{1 - 3e^{16t}}$",
         ]
     )
+
+    ax.axhline(0.0, xlims[0], xlims[1], color="k", linewidth=0.75, zorder=0)
 
     fig.savefig(
         Path(

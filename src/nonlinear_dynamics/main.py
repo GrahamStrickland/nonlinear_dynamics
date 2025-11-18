@@ -1,15 +1,9 @@
 import os
 from pathlib import Path
 
-from nonlinear_dynamics.ch02 import (
-    plot_ex2_2_1,
-    plot_ex2_2_2,
-    plot_ex2_2_3,
-    plot_ex2_2_4,
-    plot_ex2_2_5,
-    plot_ex2_2_6,
-    plot_ex2_2_7,
-)
+from nonlinear_dynamics.ch02 import (plot_ex2_2_1, plot_ex2_2_2, plot_ex2_2_3,
+                                     plot_ex2_2_4, plot_ex2_2_5, plot_ex2_2_6,
+                                     plot_ex2_2_7)
 
 
 def main():

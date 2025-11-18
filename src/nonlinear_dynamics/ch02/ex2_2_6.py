@@ -5,7 +5,6 @@ import numpy as np
 
 from nonlinear_dynamics.plotting_utils import get_vector_field_plot
 
-
 matplotlib.rcParams["text.usetex"] = True
 
 

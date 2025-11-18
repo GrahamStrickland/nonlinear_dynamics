@@ -6,7 +6,6 @@ from .ex2_2_5 import plot_ex2_2_5
 from .ex2_2_6 import plot_ex2_2_6
 from .ex2_2_7 import plot_ex2_2_7
 
-
 __all__ = [
     "plot_ex2_2_1",
     "plot_ex2_2_2",

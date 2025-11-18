@@ -5,7 +5,6 @@ import numpy as np
 
 from nonlinear_dynamics.plotting_utils import get_vector_field_plot
 
-
 matplotlib.rcParams["text.usetex"] = True
 
 
@@ -23,12 +22,7 @@ def ex2_2_4_vecfield(plotsdir):
     stable_points = [(-np.pi, 0.0), (np.pi, 0.0)]
     unstable_points = [(-2.0 * np.pi, 0.0), (0.0, 0.0), (2.0 * np.pi, 0.0)]
 
-    arrow_xs = (
-        [x - 0.2 for (x, _) in stable_points]
-        + [x + 0.2 for (x, _) in stable_points]
-        + [x - 0.2 for (x, _y) in unstable_points]
-        + [x + 0.2 for (x, _) in unstable_points]
-    )
+    arrow_xs = [-1.05 * np.pi, -0.9 * np.pi, -1.0, 1.15, 1.8 * np.pi, 2.15 * np.pi]
 
     ax, fig = get_vector_field_plot(
         x,

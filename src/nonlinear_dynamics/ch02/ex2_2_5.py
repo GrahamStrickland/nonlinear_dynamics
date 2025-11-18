@@ -6,7 +6,6 @@ import numpy as np
 
 from nonlinear_dynamics.plotting_utils import get_vector_field_plot
 
-
 matplotlib.rcParams["text.usetex"] = True
 
 
@@ -70,14 +69,29 @@ def ex2_2_5_vecfield(plotsdir):
 def ex2_2_5_graph(plotsdir):
     step = 0.01
     xlims = [0.0, 8.0 * np.pi]
+    ylims = [-3.0, 3.0]
 
-    t = np.arange(xlims[0], xlims[1] + step, step)
+    ts = np.arange(xlims[0], xlims[1] + step, step)
 
     fig, ax = plt.subplots()
 
-    ax.set_xlim(xlims[0], xlims[1])
+    ax.set_xlim(*xlims)
+    ax.set_ylim(*ylims)
 
-    ax.plot(t, x1(t))
+    xs = x1(ts)
+    # TODO: Determine these values analytically
+    # asymptotes = [t for t in ts if x1(t) < ylims[0] or x1(t) > ylims[1]]
+    # print(len(asymptotes))
+    # print(asymptotes[23], asymptotes[70], asymptotes[127])
+    asymptotes = [3.58, 10.75, 18.01]
+    xs[xs > ylims[1]] = np.inf
+    xs[xs < ylims[0]] = -np.inf
+
+    ax.axhline(0.0, xlims[0], xlims[1], color="k", linewidth=0.75, zorder=0)
+    ax.vlines(
+        asymptotes, ylims[0], ylims[1], color="0.5", linestyles="dashed", linewidths=1.0
+    )
+    ax.plot(ts, xs)
 
     ax.set_xlabel(r"$t$")
     ax.set_ylabel(r"$x$")

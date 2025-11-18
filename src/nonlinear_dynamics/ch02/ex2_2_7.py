@@ -4,7 +4,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 matplotlib.rcParams["text.usetex"] = True
 
 
@@ -30,6 +29,9 @@ def ex2_2_7_graph(plotsdir):
             r"$\cos{x}$",
         ]
     )
+
+    ax.axhline(0.0, xlims[0], xlims[1], color="k", linewidth=0.75, zorder=0)
+    ax.axvline(0.0, color="k", linewidth=0.75, zorder=0)
 
     fig.savefig(
         Path(
