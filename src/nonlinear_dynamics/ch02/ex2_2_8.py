@@ -18,7 +18,7 @@ def ex2_2_8_vecfield(plotsdir: Path):
 
     x = np.arange(xlims[0], xlims[1] + step, step)
 
-    half_stable_points = [(-1.0, 0.0)]
+    half_stable_points_right = [(-1.0, 0.0)]
     stable_points = [(0.0, 0.0)]
     unstable_points = [(2.0, 0.0)]
 
@@ -28,7 +28,7 @@ def ex2_2_8_vecfield(plotsdir: Path):
         x=x,
         xdot=xdot,
         xlims=xlims,
-        half_stable_points=half_stable_points,
+        half_stable_points_right=half_stable_points_right,
         stable_points=stable_points,
         unstable_points=unstable_points,
         arrow_xs=arrow_xs,
