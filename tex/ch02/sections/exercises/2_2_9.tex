@@ -1,0 +1,53 @@
+% Exercise 2.2.9
+
+From Figure 2, we see that we are looking for an equation $\dot{x} = f(x)$
+with a stable fixed point at $x = 0$ and an unstable fixed point at $x = 1$,
+whose solutions $x(t)$ satisfy the following three conditions:
+\begin{itemize}
+    \item[(i)] $x_1(t)$ is a particular solution satisfying $x_1(0) > 1$,
+        where 
+        \[
+            \lim_{t \to \infty}x_1(t) = \infty, 
+        \]
+    \item[(ii)] $x_2(t)$ is a particular solution satisfying $0 < x_2(0) < 1$,
+        where 
+        \[
+            \lim_{t \to \infty}x_2(t) = 0, 
+        \]
+    \item[(iii)] $x_3(t)$ is a particular solution satisfying $x_3(0) = -1$,
+        where 
+        \[
+            \lim_{t \to \infty}x_3(t) = 0. 
+        \]
+\end{itemize}
+
+One such equation is $\dot{x} = x^2 - x$, which we solve as follows. First,
+we integrate both sides with respect to $x$ and $t$ to find
+\begin{equation*}
+    \begin{split}
+        \frac{dx}{dt} &= x^2 - x \\
+        \Leftrightarrow \int{\frac{dx}{x^2 - x}} &= \int{dt} \\
+        \Leftrightarrow \int{\frac{dx}{x - 1}} - \int{\frac{dx}{x}} &= t + c_1\\
+        \Leftrightarrow \ln{\lvert x - 1 \rvert} - \ln{\lvert x \rvert} &= t + c_1\\
+        \Leftrightarrow \ln{\biggl\lvert \frac{x - 1}{x}\biggr\rvert} &= t + c_1\\
+        \Leftrightarrow \frac{x - 1}{x} &= \pm e^{t + c_1}.
+    \end{split}
+\end{equation*}
+If we replace $\pm e^{c_1}$ by $c$ and solve for $y$, we get the one-parameter
+family of solutions
+\[
+    x = \frac{1}{1 - ce^t}.
+\]
+
+Thus, for $x_1(0) > 1$, say $x_1(0) = \frac{3}{2}$, we have
+\begin{equation*}
+    \begin{split}
+        \frac{1}{1 - c} &= \frac{3}{2} \\
+        \Leftrightarrow 1 - c &= \frac{2}{3} \\
+        \Leftrightarrow c &= \frac{1}{3},
+    \end{split}
+\end{equation*}
+so that 
+\[
+    x_1(t) = \frac{1}{1 - e^{t}/3}
+\].
