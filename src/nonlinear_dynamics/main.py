@@ -3,7 +3,7 @@ from pathlib import Path
 
 from nonlinear_dynamics.ch02 import (plot_ex2_2_1, plot_ex2_2_2, plot_ex2_2_3,
                                      plot_ex2_2_4, plot_ex2_2_5, plot_ex2_2_6,
-                                     plot_ex2_2_7)
+                                     plot_ex2_2_7, plot_ex2_2_8)
 
 
 def main():
@@ -19,6 +19,7 @@ def main():
     plot_ex2_2_5(plotsdir)
     plot_ex2_2_6(plotsdir)
     plot_ex2_2_7(plotsdir)
+    plot_ex2_2_8(plotsdir)
 
 
 if __name__ == "__main__":

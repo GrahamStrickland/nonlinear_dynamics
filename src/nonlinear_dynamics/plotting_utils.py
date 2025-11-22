@@ -2,6 +2,7 @@ from typing import Callable
 
 import matplotlib
 import matplotlib.pyplot as plt
+from matplotlib.markers import MarkerStyle
 import numpy as np
 
 matplotlib.rcParams["text.usetex"] = True
@@ -17,6 +18,7 @@ def get_vector_field_plot(
     arrow_delta: float,
     width: float,
     scale: float,
+    half_stable_points: list[tuple[float, float]] | None = None,
     ylims: tuple[float, float] | None = None,
 ) -> tuple:
     fig, ax = plt.subplots()
@@ -50,6 +52,23 @@ def get_vector_field_plot(
         color="w",
         zorder=3,
     )
+    if half_stable_points is not None:
+        ax.scatter(
+            [x for (x, _) in half_stable_points],
+            [y for (_, y) in half_stable_points],
+            s=20,
+            marker="o",
+            color="C0",
+            zorder=2,
+        )
+        ax.scatter(
+            [x for (x, _) in half_stable_points],
+            [y for (_, y) in half_stable_points],
+            s=5,
+            marker=MarkerStyle("o", fillstyle="left"),
+            color="w",
+            zorder=3,
+        )
 
     ax.axhline(0.0, xlims[0], xlims[1], color="k", linewidth=0.75, zorder=0)
     ax.axvline(0.0, color="k", linewidth=0.75, zorder=0)
