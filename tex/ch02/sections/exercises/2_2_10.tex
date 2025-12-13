@@ -1,0 +1,23 @@
+% Exercise 2.2.10
+
+\begin{itemize}
+    \item[(a)] For the function $\dot{x} = f(x) = 0$, every real number is a fixed
+        point, i.e., for $x \in \mathbb{R}, f(x) = 0$.
+    \item[(b)] For the function $\dot{x} = f(x) = \sin{\pi x}$, every integer
+        is a fixed point, since $\forall x \in \mathbb{R}$, $\sin{\pi x} = 0$.
+    \item[(c)] Such a function cannot exist, since $f(x^*) = 0$ implies that either 
+        $f(x^* - \varepsilon) < 0$ and $f(x^* + \varepsilon) > 0$ (or vice versa) 
+        for some $\varepsilon \in \mathbb{R}$, $\varepsilon > 0$, or 
+        $\dot{x} = f(x) = 0$ $\forall x \in \mathbb{R}$, by the intermediate value 
+        theorem. Thus there cannot be exactly three stable fixed points of a 
+        continuous function.
+    \item[(d)] $\dot{x} = f(x) = 1$ has no fixed points, since 
+        $\forall x \in \mathbb{R}$, $f(x) \neq 0$.
+    \item[(e)] The polynomial
+        \[
+            \dot{x} = f(x) = (x - \alpha_1)(x - \alpha_2) \cdots (x - \alpha_100),
+        \]
+        for $\alpha_1 \neq \alpha_2$, $\alpha_1 \neq \alpha_3$, \ldots, 
+        $\alpha_2 \neq \alpha_3$, \ldots, $\alpha_{99} \neq \alpha_{100}$ has exactly 
+        100 fixed points.
+\end{itemize}
