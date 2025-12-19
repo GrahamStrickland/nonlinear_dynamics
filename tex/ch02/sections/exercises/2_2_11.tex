@@ -1,0 +1,30 @@
+% Exercise 2.2.11
+
+Since we have a linear first-order differential equation, we have the standard form
+\[
+  \dot{Q} + \frac{Q}{RC} = \frac{V_0}{R},
+\]
+so that we may identify the integrating factor
+\[
+  e^{\int{1/RC\, dt}} = e^{t/RC}
+\]
+and multiply both sides of this equation by the integrating factor to obtain
+\[
+  \frac{d}{dt}\bigl[e^{t/RC} Q\bigr] = e^{t/RC} \frac{V_0}{R}.
+\]
+Integrating both sides yields
+\begin{equation*}
+  \begin{split}
+    e^{t/RC} Q(t) &= \frac{V_0}{R}\int{e^{t/RC} \, dt} \\
+    &= \frac{V_0}{R^2 C} e^{t/RC} + c \\
+    \Leftrightarrow Q(t) &= \frac{V_0}{R^2 C} + ce^{-t/RC}.
+  \end{split}
+\end{equation*}
+Then, using the initial condition $Q(0) = 0$, we have
+\[
+  c = -\frac{V_0}{R^2 C},
+\]
+so that we have the solution
+\[
+  Q(t) = \frac{V_0}{R^2 C}\Bigl(1 - e^{-t/RC}\Bigr).
+\]
