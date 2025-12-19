@@ -17,15 +17,15 @@ Integrating both sides yields
 \begin{equation*}
   \begin{split}
     e^{t/RC} Q(t) &= \frac{V_0}{R}\int{e^{t/RC} \, dt} \\
-    &= \frac{V_0}{R^2 C} e^{t/RC} + c \\
-    \Leftrightarrow Q(t) &= \frac{V_0}{R^2 C} + ce^{-t/RC}.
+    &= CV_0 e^{t/RC} + c \\
+    \Leftrightarrow Q(t) &= CV_0 + ce^{-t/RC}.
   \end{split}
 \end{equation*}
 Then, using the initial condition $Q(0) = 0$, we have
 \[
-  c = -\frac{V_0}{R^2 C},
+  c = -CV_0,
 \]
 so that we have the solution
 \[
-  Q(t) = \frac{V_0}{R^2 C}\Bigl(1 - e^{-t/RC}\Bigr).
+  Q(t) = CV_0\Bigl(1 - e^{-t/RC}\Bigr).
 \]
