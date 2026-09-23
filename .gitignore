@@ -5,6 +5,8 @@
 *.log
 *.synctex.gz
 *.out
+*.bbl
+*.dvi
 
 # macOS files
 .DS_Store
