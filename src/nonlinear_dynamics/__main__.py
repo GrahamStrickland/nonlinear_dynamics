@@ -1,10 +1,18 @@
 import os
 from pathlib import Path
 
-from nonlinear_dynamics.ch02 import (plot_ex2_2_1, plot_ex2_2_2, plot_ex2_2_3,
-                                     plot_ex2_2_4, plot_ex2_2_5, plot_ex2_2_6,
-                                     plot_ex2_2_7, plot_ex2_2_8, plot_ex2_2_9, 
-                                     solution_ex2_2_11)
+from nonlinear_dynamics.ch02 import (
+    plot_ex2_2_1,
+    plot_ex2_2_2,
+    plot_ex2_2_3,
+    plot_ex2_2_4,
+    plot_ex2_2_5,
+    plot_ex2_2_6,
+    plot_ex2_2_7,
+    plot_ex2_2_8,
+    plot_ex2_2_9,
+    solution_ex2_2_11,
+)
 
 
 def main():
@@ -26,6 +34,7 @@ def main():
 
     # Solutions
     solution_ex2_2_11()
+
 
 if __name__ == "__main__":
     main()
